@@ -88,7 +88,6 @@ img {
 }
 
 /** -----------------HEADER--------------- */
-
 .header {
     border-bottom: 1px solid #e7e9fc;
     box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
@@ -127,7 +126,7 @@ img {
     gap: 40px;
 }
 
-
+/* .header-menu-item {} */
 
 .header-menu-link {
     font-weight: 500;
@@ -193,7 +192,7 @@ img {
     margin: 0 auto;
 }
 
-
+/* .hero-container {} */
 
 .hero-title {
     font-size: 56px;
@@ -233,7 +232,7 @@ img {
     padding: 120px 0;
 }
 
-
+/* .benefits-icon {} */
 
 .benefits-icon-bg {
     display: flex;
@@ -259,7 +258,7 @@ img {
     margin-bottom: 8px;
 }
 
-
+/* .benefits-item-text {} */
 
 .doing {
     padding-bottom: 120px;
@@ -311,7 +310,7 @@ img {
     margin-bottom: 8px;
 }
 
-
+/* .team-text {} */
 
 .team-soc-list {
     display: flex;
@@ -426,7 +425,7 @@ img {
     max-width: 264px;
 }
 
-
+/* .footer-soc-container {} */
 
 .footer-soc-title {
     color: var(--hero-color);
@@ -471,6 +470,84 @@ img {
     flex-wrap: wrap;
     align-items: baseline;
     margin-left: 0 auto;
+}
+
+.footer-subscribe {
+    display: flex;
+    flex-direction: column;
+    margin-left: 80px;
+}
+
+.subscribe-form {
+    display: flex;
+    gap: 24px;
+}
+
+.subscribe-title {
+    color: var(--hero-color);
+    font-weight: 500;
+    margin-bottom: 16px;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+}
+
+/* .subscribe-label {} */
+
+.footer-input {
+    background-color: transparent;
+    border-radius: 4px;
+    border: 1px solid var(--hero-color);
+    color: var(--hero-color);
+    width: 264px;
+    height: 40px;
+    padding: 8px 16px;
+    outline: transparent;
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+}
+
+.footer-input::placeholder {
+    font-weight: 400;
+    font-style: 12px;
+    line-height: 2;
+    letter-spacing: 0.04em;
+    color: var(--hero-color);
+}
+
+.subscribe-btn {
+    display: block;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: var(--hero-color);
+    cursor: pointer;
+    background: var(--main-brand-color);
+    border-radius: 4px;
+    border: none;
+    min-width: 165px;
+    padding: 8px 24px;
+    cursor: pointer;
+    margin: 0 auto;
+    transition: background-color var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color var(--transition);
+}
+
+.subscribe-btn:is(:hover, :focus) {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    background-color: var(--menu-active-color);
+}
+
+.send-icon {
+    margin-left: 16px;
+    fill: var(--hero-color);
 }
 
 /** ---------------PORTFOLIO-MAIN------------------ */
@@ -546,7 +623,7 @@ img {
     margin-bottom: 8px;
 }
 
-
+/* .products-text {} */
 
 .products-cover-pic {
     position: relative;
@@ -571,7 +648,6 @@ img {
 }
 
 /**------BACDROP---------------- */
-
 .backdrop {
     position: fixed;
     top: 0;
@@ -580,7 +656,11 @@ img {
     background-color: rgba(46, 47, 66, 0.4);
     transition: opacity var(--transition), visibility var(--transition);
 }
-
+.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
 .modal {
     position: absolute;
     left: 50%;
@@ -593,44 +673,192 @@ img {
     border-radius: 4px;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
         0px 2px 1px rgba(0, 0, 0, 0.2);
+    padding: 72px 24px 24px 24px;
 }
 
-.backdrop.is-hidden .modal {
-    transform: translate(-50%, -50%) scale(0);
+.modal-title {
+    margin-bottom: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: var(--title-color);
 }
 
-.modal-btn {
+.modal-label {
+    margin-bottom: 4px;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
+    color: #8e8f99;
+    display: block;
+}
+
+.modal-field {
+    margin-bottom: 8px;
+}
+
+.input-wrap {
+    position: relative;
+}
+
+.modal-input {
+    width: 100%;
+    height: 40px;
+    border: 1px solid rgba(46, 47, 66, 0.4);
+    border-radius: 4px;
+    background-color: transparent;
+    padding-left: 38px;
+    padding-right: 19px;
+    outline: transparent;
+    transition: border-color var(--transition);
+}
+
+.modal-input:is(:hover, :focus) {
+    border: 1px solid var(--main-brand-color);
+}
+
+.modal-input:is(:hover, :focus)+.input-icon {
+    fill: var(--main-brand-color);
+}
+
+.input-icon {
+    fill: var(--title-color);
     position: absolute;
-    display: flex;
-    right: 24px;
-    top: 24px;
-    width: 24px;
-    height: 24px;
-    padding: 0;
-    background-color: #e7e9fc;
-    border-radius: 50%;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background-color var(--transition), border var(--transition);
-}
-
-.modal-btn:is(:hover, :focus, :active) {
-    background-color: var(--menu-active-color);
-    border: none;
-}
-
-.modal-close-icon {
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
     transition: fill var(--transition);
 }
 
-.modal-btn:is(:hover, :focus, :active) .modal-close-icon {
-    fill: var(--hero-color);
+.modal-textfield {
+    margin-bottom: 16px;
 }
 
-.is-hidden {
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
+.modal-textarea {
+    width: 100%;
+    height: 120px;
+    border: 1px solid rgba(46, 47, 66, 0.4);
+    border-radius: 4px;
+    padding: 8px 16px;
+    background-color: transparent;
+    resize: none;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
+    color: rgba(46, 47, 66, 0.4);
+    outline: transparent;
+    transition: border-color var(--transition);
+}
+
+.modal-textarea:is(:hover, :focus) {
+    border-color: var(--main-brand-color);
+}
+
+.modal-textarea::placeholder {
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
+    color: rgba(46, 47, 66, 0.4);
+}
+
+.modal-check {
+    margin-bottom: 24px;
+}
+
+.check-text {
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
+    color: #8e8f99;
+    display: flex;
+    align-items: center;
+}
+
+.check-text a {
+    color: var(--main-brand-color);
+}
+
+.check-text span {
+    width: 16px;
+    height: 16px;
+    border: 1px solid rgba(46, 47, 66, 0.4);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    fill: transparent;
+    margin-right: 8px;
+    transition: background-color var(--transition), border var(--transition),
+        fill var(--transition);
+}
+
+.check-icon {
+    .check-custom {
+        display: inline-flex;
+    }
+
+    .input-check:checked+.check-text span {
+        background-color: var(--menu-active-color);
+        border: none;
+        border-radius: 2px;
+        fill: var(--footer-color);
+    }
+
+    .backdrop.is-hidden .modal {
+        transform: translate(-50%, -50%) scale(0);
+    }
+
+    .modal-btn {
+        position: absolute;
+        display: flex;
+        right: 24px;
+        top: 24px;
+        width: 24px;
+        height: 24px;
+        padding: 0;
+        background-color: #e7e9fc;
+        border-radius: 50%;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color var(--transition), border var(--transition);
+    }
+
+    .modal-btn:is(:hover, :focus, :active) {
+        background-color: var(--menu-active-color);
+        border: none;
+    }
+
+    .modal-close-icon {
+        transition: fill var(--transition);
+    }
+
+    .send-btn {
+        font-family: inherit;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 1.5;
+        letter-spacing: 0.04em;
+        color: var(--hero-color);
+        cursor: pointer;
+        background: var(--main-brand-color);
+        border-radius: 4px;
+        border: none;
+        min-width: 169px;
+        padding: 16px 32px;
+        display: block;
+        margin: 0 auto;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+        transition: background-color var(--transition);
+    }
+
+    .send-btn:is(:hover, :focus) {
+        background-color: var(--menu-active-color);
+    }
+
+    .modal-btn:is(:hover, :focus, :active) .modal-close-icon {
+        fill: var(--hero-color);
+    }
 }
